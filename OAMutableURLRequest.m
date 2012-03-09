@@ -95,7 +95,7 @@ signatureProvider:(id<OASignatureProviding>)aProvider
 
 - (void)prepare {
     // sign
-    // NSLog(@"Base string is: %@", [self _signatureBaseString]);
+    //NSLog(@"Base string is: %@", [self _signatureBaseString]);
    signature = [signatureProvider signClearText:[self _signatureBaseString]
                                       withSecret:[NSString stringWithFormat:@"%@&%@",
                                                   consumer.secret,
@@ -133,7 +133,7 @@ signatureProvider:(id<OASignatureProviding>)aProvider
     nonce = (__bridge NSString *)string;
 }
 
-NSInteger normalize(id obj1, id obj2, void *context)
+static inline NSInteger normalize(id obj1, id obj2, void *context)
 {
     NSArray *nameAndValue1 = [obj1 componentsSeparatedByString:@"="];
     NSArray *nameAndValue2 = [obj2 componentsSeparatedByString:@"="];
